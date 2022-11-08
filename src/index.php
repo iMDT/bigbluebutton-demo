@@ -13,7 +13,7 @@ if( !empty($roomName) && !empty($userName) && !empty($userRole)) {
 	$createParametersForHash = 'meetingID='.$roomName.'&name='.$roomName.$bbbSecret;
 	$createChecksum = hash('sha256', 'create'.$createParametersForHash);
 
-        $createParametersForCall = 'meetingID='.urlencode($roomName).'&name='.urlencode($roomName);
+  $createParametersForCall = 'meetingID='.urlencode($roomName).'&name='.urlencode($roomName);
 	$createCall = $bbbUrl . 'api/create?' . $createParametersForCall . '&checksum='.$createChecksum;
 
 	$createResponse = @file_get_contents($createCall);
@@ -46,6 +46,14 @@ if(empty($roomName)) {
     color: #d00;
 }
 
+.container {
+  max-width: 400px;
+}
+
+img {
+  max-width: 200px;
+}
+
 button {
   margin-top: 1rem;
   background-color: #0F4D9D !important;
@@ -54,42 +62,42 @@ button {
 </style>
 </head>
 <body>
-  <div class="d-flex justify-content-center">
-    <div>
+  <div class="container">
+    <div class="text-center">
       <img src="images/bbb-logo.png" />
-
-      <form method="POST" action="#">
-        <!-- Room name input -->
-        <div class="form-ooutline mb-4">
-          <label class="form-label" for="room-name">Room name</label>
-          <input type="text" minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
-          <?php if($submit && empty($roomName)) { ?> <span class="required">required</span> <?php } ?>
-        </div>
-
-        <!-- User name input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="user-name">Your name</label>
-          <input type="text" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
-          <?php if($submit && empty($userName)) { ?> <span class="required">required</span> <?php } ?>
-        </div>
-
-        <!-- Role input -->
-        <div class="form-outline mb-4">
-          Role
-          <input class="form-check-input" type="radio" name="user-role" id="user-role-moderator" value="moderator" checked="checked">
-          <label class="form-check-label" for="user-role-moderator">
-            Moderator
-          </label>
-          <input class="form-check-input" type="radio" name="user-role" id="user-role-viewer" value="viewer">
-          <label class="form-check-label" for="user-role-viewer">
-            Viewer
-          </label>
-        </div>
-
-        <!-- Submit button -->
-        <button type="submit" value="submit" name="submit" class="btn btn-primary btn-block w-100">Join</button>
-
-      </form>
     </div>
+
+    <form method="POST" action="#">
+      <!-- Room name input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="room-name">Room name</label>
+        <input type="text" minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
+        <?php if($submit && empty($roomName)) { ?> <span class="required">required</span> <?php } ?>
+      </div>
+
+      <!-- User name input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="user-name">Your name</label>
+        <input type="text" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
+        <?php if($submit && empty($userName)) { ?> <span class="required">required</span> <?php } ?>
+      </div>
+
+      <!-- Role input -->
+      <div class="form-outline mb-4">
+        Role
+        <input class="form-check-input" type="radio" name="user-role" id="user-role-moderator" value="moderator" checked="checked">
+        <label class="form-check-label" for="user-role-moderator">
+          Moderator
+        </label>
+        <input class="form-check-input" type="radio" name="user-role" id="user-role-viewer" value="viewer">
+        <label class="form-check-label" for="user-role-viewer">
+          Viewer
+        </label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" value="submit" name="submit" class="btn btn-primary btn-block w-100">Join</button>
+
+    </form>
   </div>
 </body>
