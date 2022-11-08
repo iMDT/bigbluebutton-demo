@@ -69,7 +69,7 @@ button {
       <img src="images/bbb-logo.png" />
     </div>
 
-    <form method="POST" action="#">
+    <form method="POST" action="#" onsubmit="document.body.style.opacity=0.5">
       <!-- Room name input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="room-name">Room name</label>
