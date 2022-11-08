@@ -73,14 +73,14 @@ button {
       <!-- Room name input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="room-name">Room name</label>
-        <input type="text" minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
+        <input type="text" required="required"  minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
         <?php if($submit && empty($roomName)) { ?> <span class="required">required</span> <?php } ?>
       </div>
 
       <!-- User name input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="user-name">Your name</label>
-        <input type="text" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
+        <input type="text" required="required" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
         <?php if($submit && empty($userName)) { ?> <span class="required">required</span> <?php } ?>
       </div>
 
