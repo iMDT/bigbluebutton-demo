@@ -55,7 +55,7 @@ button {
 </head>
 <body>
   <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column w-25">
+    <div class="d-flex flex-column sm-12 md-4">
       <img src="images/bbb-logo.png" />
 
       <form method="POST" action="#">
