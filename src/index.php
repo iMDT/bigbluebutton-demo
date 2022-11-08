@@ -48,6 +48,8 @@ if(empty($roomName)) {
 
 .container {
   max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img {
