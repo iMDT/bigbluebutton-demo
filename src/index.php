@@ -44,44 +44,51 @@ if(empty($roomName)) {
 .required {
     color: #d00;
 }
+
+button {
+  margin-top: 1rem;
+  background-color: #0F4D9D !important;
+  border-color: white !important;
+}
 </style>
 </head>
 <body>
-<div class="d-flex flex-column justify-content-center">
-<div class="w-25">
-<img src="images/bbb-logo.png" />
-</div>
-<form method="POST" action="#" class="w-25">
-  <!-- Room name input -->
-  <div class="form-ooutline mb-4">
-    <label class="form-label" for="room-name">Room name</label>
-    <input type="text" minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
-    <?php if($submit && empty($roomName)) { ?> <span class="required">required</span> <?php } ?>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column w-25">
+      <img src="images/bbb-logo.png" />
+
+      <form method="POST" action="#">
+        <!-- Room name input -->
+        <div class="form-ooutline mb-4">
+          <label class="form-label" for="room-name">Room name</label>
+          <input type="text" minlength="3" name="room-name" id="room-name" class="form-control" value="<?php echo htmlentities($roomName??'') ?>" />
+          <?php if($submit && empty($roomName)) { ?> <span class="required">required</span> <?php } ?>
+        </div>
+
+        <!-- User name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="user-name">Your name</label>
+          <input type="text" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
+          <?php if($submit && empty($userName)) { ?> <span class="required">required</span> <?php } ?>
+        </div>
+
+        <!-- Role input -->
+        <div class="form-outline mb-4">
+          Role
+          <input class="form-check-input" type="radio" name="user-role" id="user-role-moderator" value="moderator" checked="checked">
+          <label class="form-check-label" for="user-role-moderator">
+            Moderator
+          </label>
+          <input class="form-check-input" type="radio" name="user-role" id="user-role-viewer" value="viewer">
+          <label class="form-check-label" for="user-role-viewer">
+            Viewer
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" value="submit" name="submit" class="btn btn-primary btn-block w-100">Join</button>
+
+      </form>
+    </div>
   </div>
-
-  <!-- User name input -->
-  <div class="form-outline mb-4">
-    <label class="form-label" for="user-name">Your name</label>
-    <input type="text" minlength="3" name="user-name" id="user-name" class="form-control" value="<?php echo htmlentities($userName??'') ?>" />
-    <?php if($submit && empty($userName)) { ?> <span class="required">required</span> <?php } ?>
-  </div>
-
-  <!-- Role input -->
-  <div class="form-outline mb-4">
-    Role
-    <input class="form-check-input" type="radio" name="user-role" id="user-role-moderator" value="moderator" checked="checked">
-    <label class="form-check-label" for="user-role-moderator">
-      Moderator
-    </label>
-    <input class="form-check-input" type="radio" name="user-role" id="user-role-viewer" value="viewer">
-    <label class="form-check-label" for="user-role-viewer">
-      Viewer
-    </label>
-  </div>
-
-  <!-- Submit button -->
-  <button type="submit" value="submit" name="submit" class="btn btn-primary btn-block mb-4">Join</button>
-
-</form>
-</div>
 </body>
