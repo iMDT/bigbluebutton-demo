@@ -49,6 +49,7 @@ if(empty($roomName)) {
 <body>
 <div class="d-flex justify-content-center">
 <img src="images/bbb-logo.png" />
+<br>
 <form method="POST" action="#" class="w-25">
   <!-- Room name input -->
   <div class="form-ooutline mb-4">
